@@ -21,11 +21,25 @@ tableData.forEach((UFOSighting) => {
 });
 
 // Select the button
-var button = d3.select("#button");
-
-// Select the form
-var form = d3.select("#form");
+var button = d3.select("#filter-btn");
 
 // Create event handlers 
 button.on("click", dateFilter);
-form.on("submit",runEdateFilternter);
+
+
+// Complete the event handler function for the form
+function dateFilter() {
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
+  
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+  
+    // Console check
+    console.log(inputValue);
+    console.log(tableData);
+};
