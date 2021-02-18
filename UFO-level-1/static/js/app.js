@@ -20,7 +20,12 @@ tableData.forEach((UFOSighting) => {
     Object.entries(UFOSighting).forEach(([key, value]) => {
         
         // Console.log the data to see if key and values are being read by the function
-        console.log(key, value);
+        //console.log(key, value);
+
+        // Append a cell to the row for each value using "td" tag
+        var cell = row.append("td");
+         // Append the text from each value to the row
+        cell.text(value);
     });
 });
 
