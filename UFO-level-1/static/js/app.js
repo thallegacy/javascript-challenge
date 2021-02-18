@@ -4,8 +4,10 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
+//Put the table loading process in a function to be use repeatedly for table filtering
+var tableLoad = (loadData)  => {
 // Loop through the data for each table UFO object
-tableData.forEach((UFOSighting) => {
+loadData.forEach((UFOSighting) => {
 
     // Append one table row using "tr" tag for each UFO Sighting object
     var row = tbody.append("tr");
@@ -19,63 +21,67 @@ tableData.forEach((UFOSighting) => {
         cell.text(value);
     });
 });
+};
 
-// Select the button
-var button = d3.select("#filter-btn");
+// Call table loading function with table data for use
+tableLoad(tableData);
 
-// Select the form
-var form = d3.select("#form");
+// // Select the button
+// var button = d3.select("#filter-btn");
 
-// Create event handlers 
-button.on("click", dateFilter);
-form.on("submit",dateFilter);
+// // Select the form
+// var form = d3.select("#form");
 
-// Complete the event handler function for the form
-function dateFilter() {
+// // Create event handlers 
+// button.on("click", dateFilter);
+// form.on("submit",dateFilter);
+
+// // Complete the event handler function for the form
+// function dateFilter() {
 
 
-    // Prevent the page from refreshing
-    d3.event.preventDefault();
+//     // Prevent the page from refreshing
+//     d3.event.preventDefault();
 
     
-    // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+//     // Select the input element and get the raw HTML node
+//     var inputElement = d3.select("#datetime");
   
-    // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+//     // Get the value property of the input element
+//     var inputValue = inputElement.property("value");
   
-    // Console check
-    console.log(inputValue);
+//     // Console check
+//     console.log(inputValue);
 
-    // Filter on input value property of the input element
-    var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValue);
+//     // Filter on input value property of the input element
+//     var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValue);
   
-    // Console check
-    console.log(filteredData);
-    console.log(tableData)
+//     // Console check
+//     console.log(filteredData);
+//     console.log(tableData)
 
-    if(filteredData.length !== 0) 
-    {
-         // Clear table  
-        tbody.html("")
-        // Loop through the filter data for each table UFO object
-        filteredData.forEach((NewSighting) => {
+//     if(filteredData.length !== 0) 
+//     {
+//          // Clear table  
+//         tbody.html("")
+//         // Loop through the filter data for each table UFO object
+//         filteredData.forEach((NewSighting) => {
 
-            // Append one table row using "tr" tag for each UFO Sighting object
-            var row = tbody.append("tr");
+//             // Append one table row using "tr" tag for each UFO Sighting object
+//             var row = tbody.append("tr");
             
-            // Loop for appending the values for each newly created row
-            Object.entries(NewSighting).forEach(([key, value]) => {
+//             // Loop for appending the values for each newly created row
+//             Object.entries(NewSighting).forEach(([key, value]) => {
             
-                // Append a cell to the row for each value using "td" tag
-                var cell = row.append("td");
-                // Append the text from each value to the row
-                cell.text(value);
-            });
-        });
-    }
-    else 
-    {
-        alert("Date not found. Please enter a value");
-    }  	
-};
+//                 // Append a cell to the row for each value using "td" tag
+//                 var cell = row.append("td");
+//                 // Append the text from each value to the row
+//                 cell.text(value);
+//             });
+//         });
+//     }
+//     else 
+//     {
+//         alert("Date not found. Please enter a value");
+//     }  	
+// };
