@@ -41,5 +41,10 @@ function dateFilter() {
   
     // Console check
     console.log(inputValue);
-    console.log(tableData);
+
+    // Filter on input value property of the input element
+    var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValue);
+  
+    // Console check
+    console.log(filteredData);
 };
