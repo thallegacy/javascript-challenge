@@ -23,9 +23,12 @@ tableData.forEach((UFOSighting) => {
 // Select the button
 var button = d3.select("#filter-btn");
 
+// Select the form
+var form = d3.select("#form");
+
 // Create event handlers 
 button.on("click", dateFilter);
-
+form.on("submit",dateFilter);
 
 // Complete the event handler function for the form
 function dateFilter() {
@@ -34,9 +37,6 @@ function dateFilter() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
-  
-    // Clear table  
-    tbody.html("")
     
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
@@ -52,22 +52,30 @@ function dateFilter() {
   
     // Console check
     console.log(filteredData);
+    console.log(tableData)
 
+    if(filteredData.length !== 0) 
+    {
+         // Clear table  
+        tbody.html("")
+        // Loop through the filter data for each table UFO object
+        filteredData.forEach((NewSighting) => {
 
-    // Loop through the filter data for each table UFO object
-    filteredData.forEach((NewSighting) => {
-
-        // Append one table row using "tr" tag for each UFO Sighting object
-        var row = tbody.append("tr");
-        
-        // Loop for appending the values for each newly created row
-        Object.entries(NewSighting).forEach(([key, value]) => {
-        
-            // Append a cell to the row for each value using "td" tag
-            var cell = row.append("td");
-             // Append the text from each value to the row
-            cell.text(value);
+            // Append one table row using "tr" tag for each UFO Sighting object
+            var row = tbody.append("tr");
+            
+            // Loop for appending the values for each newly created row
+            Object.entries(NewSighting).forEach(([key, value]) => {
+            
+                // Append a cell to the row for each value using "td" tag
+                var cell = row.append("td");
+                // Append the text from each value to the row
+                cell.text(value);
+            });
         });
-    });
-    
+    }
+    else 
+    {
+        alert("Date not found. Please enter a value");
+    }  	
 };
