@@ -1,4 +1,9 @@
 // from data.js
 var tableData = data;
 
-// YOUR CODE HERE!
+// Console.log the data from data.js
+console.log(data);
+
+
+
+
