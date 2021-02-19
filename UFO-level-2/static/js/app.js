@@ -56,13 +56,21 @@ function dateFilter() {
     var inputElementShape = d3.select("#forshape");
   
     // Get the value property of the input element
-    var inputValue = inputElementDate.property("value");
+    var inputValueDate = inputElementDate.property("value");
+    var inputValueCity = inputElementCity.property("value").toLowerCase();
+    var inputValueState = inputElementState.property("value").toLowerCase();
+    var inputValueCountry = inputElementCountry.property("value").toLowerCase();
+    var inputValueShape = inputElementShape.property("value").toLowerCase();
   
     // Console check
-    console.log(inputValue);
+    console.log(inputValueDate);
+    console.log(inputValueCity);
+    console.log(inputValueState);
+    console.log(inputValueCountry);
+    console.log(inputValueShape);
 
     // Filter on input value property of the input element
-    var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValue);
+    var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValueDate);
   
     // Console check
     console.log(filteredData);
