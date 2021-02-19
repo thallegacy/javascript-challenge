@@ -49,10 +49,14 @@ function dateFilter() {
 
     
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var inputElementDate = d3.select("#datetime");
+    var inputElementCity = d3.select("#forcity");
+    var inputElementState = d3.select("#forstate");
+    var inputElementCountry = d3.select("#forcountry");
+    var inputElementShape = d3.select("#forshape");
   
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    var inputValue = inputElementDate.property("value");
   
     // Console check
     console.log(inputValue);
