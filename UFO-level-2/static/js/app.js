@@ -37,11 +37,11 @@ var button = d3.select("#filter-btn");
 var form = d3.select("#form");
 
 // Create event handlers 
-button.on("click", dateFilter);
-form.on("submit",dateFilter);
+button.on("click", tableFilter);
+
 
 // Complete the event handler function for the form
-function dateFilter() {
+function tableFilter() {
 
 
     // Prevent the page from refreshing
@@ -126,5 +126,11 @@ function dateFilter() {
 
         // Reset to the orignal table dataset
         tableLoad(tableData);
-    }  	
+    }  
+
+    document.getElementById("datetime").value='';
+	document.getElementById("forcity").value='';
+	document.getElementById("forstate").value='';
+	document.getElementById("forcountry").value='';
+	document.getElementById("forshape").value='';	
 };
