@@ -69,21 +69,57 @@ function dateFilter() {
     console.log(inputValueCountry);
     console.log(inputValueShape);
 
-    // Filter on input value property of the input element
-    var filteredData = tableData.filter(datevalue => datevalue.datetime === inputValueDate);
-  
+    // Filter on input value property of the input element - Dates
+    var filteredDate = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate);
+    var filteredCity = tableData.filter(tableinfo => tableinfo.city === inputValueCity);
+    var filteredState = tableData.filter(tableinfo => tableinfo.state === inputValueState);
+    var filteredCountry = tableData.filter(tableinfo => tableinfo.country === inputValueCountry);
+    var filteredShape = tableData.filter(tableinfo => tableinfo.shape === inputValueShape);
+    
     // Console check
-    console.log(filteredData);
+    console.log(filteredDate);
+    console.log(filteredCity);
+    console.log(filteredState);
+    console.log(filteredCountry);
+    console.log(filteredShape);
 
-    if(filteredData.length !== 0) 
+    if(filteredDate.length !== 0) 
     {
          // Clear table  
         tbody.html("")
         
         // Call table loading function with filtered table data for use
-        tableLoad(filteredData);
+        tableLoad(filteredDate);
     }
-    else 
+    else if (filteredCity.length !== 0) {
+        // Clear table  
+        tbody.html("")
+
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredCity);
+        
+    } else if (filteredState.length !== 0) {
+        // Clear table  
+        tbody.html("")
+        
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredState);
+
+    } else if (filteredCountry.length !== 0) {
+        // Clear table  
+        tbody.html("")
+
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredCountry);
+        
+    } else if (filteredShape.length !== 0) {
+        // Clear table  
+        tbody.html("")
+
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredShape);
+        
+    }else
     {
         // Warning that the date entered or not entered was not found
         alert("Date not found. Please enter a value");
