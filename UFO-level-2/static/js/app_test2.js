@@ -115,7 +115,7 @@ function tableFilter() {
      // Filter on input value Country Scenarios
     var filteredCo = tableData.filter(tableinfo => tableinfo.country === inputValueCountry);
 
-    var filteredStCoSh = tableData.filter(tableinfo => tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
+    var filteredCoSh = tableData.filter(tableinfo => tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
      
     // Filter on input value Shape Scenario
     var filteredSh = tableData.filter(tableinfo => tableinfo.shape === inputValueShape);
@@ -157,5 +157,24 @@ function tableFilter() {
 
     if(filteredCiStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredCiStCoSh);}
 
+    //States
+    if(filteredSt.length !== 0) {tbody.html(""); tableLoad(filteredCi);}
 
+    if(filteredStCo.length !== 0) {tbody.html(""); tableLoad(filteredStCo);}
+    if(filteredStSh.length !== 0) {tbody.html(""); tableLoad(filteredStSh);}
+    
+    if(filteredStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredStCoSh);}
+
+    //Country
+    if(filteredCo.length !== 0) {tbody.html(""); tableLoad(filteredCo);}
+    if(filteredCoSh.length !== 0) {tbody.html(""); tableLoad(filteredCoSh);}
+
+    //Shape
+    if(filteredSh.length !== 0) {tbody.html(""); tableLoad(filteredSh);}    
+
+    document.getElementById("datetime").value='';
+	document.getElementById("forcity").value='';
+	document.getElementById("forstate").value='';
+	document.getElementById("forcountry").value='';
+	document.getElementById("forshape").value='';	
 };
