@@ -138,4 +138,11 @@ function tableFilter() {
     if(filteredDStSh.length !== 0) {tbody.html(""); tableLoad(filteredDStSh);}
     if(filteredDCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDCoSh);}
 
+    if(filteredDCiStCo.length !== 0) {tbody.html(""); tableLoad(filteredDCiStCo);}
+    if(filteredDCiStSh.length !== 0) {tbody.html(""); tableLoad(filteredDCiStSh);}
+    if(filteredDCiCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDCiCoSh);}
+    if(filteredDStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDStCoSh);}
+
+    if(filteredDCiStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDCiStCoSh);}
+
 };
