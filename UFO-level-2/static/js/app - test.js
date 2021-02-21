@@ -69,55 +69,68 @@ function tableFilter() {
     console.log(inputValueCountry);
     console.log(inputValueShape);
 
-    // Filter on input value Date Scenarios
-    var filteredD = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate);
+    // Filter on input value property of the input element - Dates
+    var filteredDate = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate);
+    var filteredCity = tableData.filter(tableinfo => tableinfo.city === inputValueCity);
+    var filteredState = tableData.filter(tableinfo => tableinfo.state === inputValueState);
+    var filteredCountry = tableData.filter(tableinfo => tableinfo.country === inputValueCountry);
+    var filteredShape = tableData.filter(tableinfo => tableinfo.shape === inputValueShape);
     
-    var filteredDCi = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity);
-    var filteredDSt = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.state === inputValueState);
-    var filteredDCo = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.country === inputValueCountry);
-    var filteredDSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.shape === inputValueShape);
-    
-    var filteredDCiSt = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.state === inputValueState);
-    var filteredDCiCo = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.country === inputValueCountry);
-    var filteredDCiSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.shape === inputValueShape);
-    var filteredDStCo = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry);
-    var filteredDStSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.state === inputValueState && tableinfo.shape === inputValueShape);
-    var filteredDCoSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
+    // Console check
+    console.log(filteredDate);
+    console.log(filteredCity);
+    console.log(filteredState);
+    console.log(filteredCountry);
+    console.log(filteredShape);
 
-    var filteredDCiStCo = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry);
-    var filteredDCiStSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.shape === inputValueShape);
-    var filteredDCiCoSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
-    var filteredDStCoSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
-    
-    var filteredDCiStCoSh = tableData.filter(tableinfo => tableinfo.datetime === inputValueDate && tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
-    
-     // Filter on input value City Scenarios
-    var filteredCi = tableData.filter(tableinfo => tableinfo.city === inputValueCity);
+    if(filteredDate.length !== 0) 
+    {
+         // Clear table  
+        tbody.html("")
+        
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredDate);
+    }
+    else if (filteredCity.length !== 0) {
+        // Clear table  
+        tbody.html("")
 
-    var filteredCiSt = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.state === inputValueState);
-    var filteredCiCo = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.country === inputValueCountry);
-    var filteredCiSh = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.shape === inputValueShape);
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredCity);
+        
+    } else if (filteredState.length !== 0) {
+        // Clear table  
+        tbody.html("")
+        
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredState);
 
-    var filteredCiStCo = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry);
-    var filteredCiStSh = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.shape === inputValueShape);
-    var filteredCiCoSh = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
+    } else if (filteredCountry.length !== 0) {
+        // Clear table  
+        tbody.html("")
 
-    var filteredCiStCoSh = tableData.filter(tableinfo => tableinfo.city === inputValueCity && tableinfo.state === inputValueState && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
-    
-     // Filter on input value State Scenarios
-    var filteredSt = tableData.filter(tableinfo => tableinfo.state === inputValueState);
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredCountry);
+        
+    } else if (filteredShape.length !== 0) {
+        // Clear table  
+        tbody.html("")
 
-    var filteredStCo = tableData.filter(tableinfo => tableinfo.state === inputValueState && tableinfo.country === inputValueCountry);
-    var filteredStSh = tableData.filter(tableinfo => tableinfo.state === inputValueState && tableinfo.shape === inputValueShape);
+        // Call table loading function with filtered table data for use
+        tableLoad(filteredShape);
+        
+    }else
+    {
+        // Warning that the date entered or not entered was not found
+        alert("Date not found. Please enter a value");
 
-    var filteredStCoSh = tableData.filter(tableinfo => tableinfo.state === inputValueState && tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
+        // Reset to the orignal table dataset
+        tableLoad(tableData);
+    }  
 
-     // Filter on input value Country Scenarios
-    var filteredCo = tableData.filter(tableinfo => tableinfo.country === inputValueCountry);
-
-    var filteredStCoSh = tableData.filter(tableinfo => tableinfo.country === inputValueCountry && tableinfo.shape === inputValueShape);
-     
-    // Filter on input value Shape Scenario
-    var filteredSh = tableData.filter(tableinfo => tableinfo.shape === inputValueShape);
-
+    document.getElementById("datetime").value='';
+	document.getElementById("forcity").value='';
+	document.getElementById("forstate").value='';
+	document.getElementById("forcountry").value='';
+	document.getElementById("forshape").value='';	
 };
