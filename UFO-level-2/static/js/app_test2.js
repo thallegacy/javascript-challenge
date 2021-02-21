@@ -119,5 +119,16 @@ function tableFilter() {
      
     // Filter on input value Shape Scenario
     var filteredSh = tableData.filter(tableinfo => tableinfo.shape === inputValueShape);
+    
+
+    // If statements for above scenarios
+    
+    //dates
+    if(filteredD.length !== 0) {tbody.html(""); tableLoad(filteredD);}
+    
+    if(filteredDCi.length !== 0) {tbody.html(""); tableLoad(filteredCi);}
+    if(filteredDSt.length !== 0) {tbody.html(""); tableLoad(filteredSt);}
+    if(filteredDCo.length !== 0) {tbody.html(""); tableLoad(filteredCo);}
+    if(filteredDSh.length !== 0) {tbody.html(""); tableLoad(filteredSh);}
 
 };
