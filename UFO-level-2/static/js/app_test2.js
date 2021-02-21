@@ -145,4 +145,17 @@ function tableFilter() {
 
     if(filteredDCiStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDCiStCoSh);}
 
+    //cities
+    if(filteredCi.length !== 0) {tbody.html(""); tableLoad(filteredCi);}
+
+    if(filteredCiSt.length !== 0) {tbody.html(""); tableLoad(filteredCiSt);}
+    if(filteredCiCo.length !== 0) {tbody.html(""); tableLoad(filteredCiCo);}
+    
+    if(filteredCiStCo.length !== 0) {tbody.html(""); tableLoad(filteredCiStCo);}
+    if(filteredCiStSh.length !== 0) {tbody.html(""); tableLoad(filteredCiStSh);}
+    if(filteredCiCoSh.length !== 0) {tbody.html(""); tableLoad(filteredCiCoSh);}
+
+    if(filteredCiStCoSh.length !== 0) {tbody.html(""); tableLoad(filteredCiStCoSh);}
+
+
 };
