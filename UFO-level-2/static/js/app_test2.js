@@ -131,4 +131,11 @@ function tableFilter() {
     if(filteredDCo.length !== 0) {tbody.html(""); tableLoad(filteredCo);}
     if(filteredDSh.length !== 0) {tbody.html(""); tableLoad(filteredSh);}
 
+    if(filteredDCiSt.length !== 0) {tbody.html(""); tableLoad(filteredDCiSt);}
+    if(filteredDCiCo.length !== 0) {tbody.html(""); tableLoad(filteredDCiCo);}
+    if(filteredDCiSh.length !== 0) {tbody.html(""); tableLoad(filteredDCiSh);}
+    if(filteredDStCo.length !== 0) {tbody.html(""); tableLoad(filteredDStCo);}
+    if(filteredDStSh.length !== 0) {tbody.html(""); tableLoad(filteredDStSh);}
+    if(filteredDCoSh.length !== 0) {tbody.html(""); tableLoad(filteredDCoSh);}
+
 };
