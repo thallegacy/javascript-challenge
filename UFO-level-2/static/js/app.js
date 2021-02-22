@@ -2,7 +2,7 @@
 var tableData = data;
 
 // Console check
-console.log(tableData);
+//console.log(tableData);
 
 // Get a reference to the table body
 var tbody = d3.select("tbody");
@@ -34,10 +34,11 @@ tableLoad(tableData);
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("#form");
+//var form = d3.select("#form");
 
 // Create event handlers 
 button.on("click", tableFilter);
+
 
 
 // Complete the event handler function for the form
