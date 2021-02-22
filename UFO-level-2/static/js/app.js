@@ -16,7 +16,7 @@ loadData.forEach((UFOSighting) => {
     var row = tbody.append("tr");
     
     // Loop for appending the values for each newly created row
-    Object.entries(UFOSighting).forEach(([key, value]) => {
+    Object.values(UFOSighting).forEach((value) => {
     
         // Append a cell to the row for each value using "td" tag
         var cell = row.append("td");
@@ -54,6 +54,8 @@ function tableFilter() {
     var inputElementState = d3.select("#forstate");
     var inputElementCountry = d3.select("#forcountry");
     var inputElementShape = d3.select("#forshape");
+
+    
   
     // Get the value property of the input element
     var inputValueDate = inputElementDate.property("value");
@@ -62,13 +64,17 @@ function tableFilter() {
     var inputValueCountry = inputElementCountry.property("value").toLowerCase();
     var inputValueShape = inputElementShape.property("value").toLowerCase();
   
-    // 
-    input_list = [];
-    if (inputValueDate !== "") { event_list.push(inputValueDate) } 
-    if (inputValueCity !== "") { event_list.push(inputValueCity) } 
-    if (inputValueState !== "") { event_list.push(inputValueState) } 
-    if (inputValueCountry !== "") { event_list.push(inputValueCountry) } 
-    if (inputValueShape !== "") { event_list.push(inputValueShape) } 
+    // Create an empty array
+    filterList = {};
+    
+    // Check to see if there is a value in the input field
+    // If there is a value, create a key (.attr("id")) and value
+    // Add it to the filterList array
+    if (inputValueDate !== "") { filterList[inputElementDate.attr("id")] = inputValueDate } 
+    if (inputValueCity !== "") { filterList[inputElementCity.attr("id")] = inputValueCity}
+    if (inputValueState !== "") { filterList[inputElementState.attr("id")] = inputValueState }
+    if (inputValueCountry !== "") { filterList[inputElementCountry.attr("id")] = inputValueCountry } 
+    if (inputValueShape !== "") { filterList[inputElementShape.attr("id")] = inputValueShape }
  
-    console.log(input_list)
+    
 };
