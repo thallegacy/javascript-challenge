@@ -16,7 +16,7 @@ loadData.forEach((UFOSighting) => {
     var row = tbody.append("tr");
     
     // Loop for appending the values for each newly created row
-    Object.entries(UFOSighting).forEach(([key, value]) => {
+    Object.values(UFOSighting).forEach((value) => {
     
         // Append a cell to the row for each value using "td" tag
         var cell = row.append("td");
@@ -34,10 +34,11 @@ tableLoad(tableData);
 var button = d3.select("#filter-btn");
 
 // Select the form
-//var form = d3.select("#form");
+//var form =d3.select("#form");
 
 // Create event handlers 
 button.on("click", tableFilter);
+//form.on("submit", tableFilter);
 
 
 
@@ -87,5 +88,10 @@ function tableFilter() {
     tbody.html("");
     tableLoad(filteredData);
 
+    document.getElementById("datetime").value='';
+	document.getElementById("city").value='';
+	document.getElementById("state").value='';
+	document.getElementById("country").value='';
+	document.getElementById("shape").value='';	
 };
 

@@ -16,7 +16,7 @@ loadData.forEach((UFOSighting) => {
     var row = tbody.append("tr");
     
     // Loop for appending the values for each newly created row
-    Object.entries(UFOSighting).forEach(([key, value]) => {
+    Object.values(UFOSighting).forEach((value) => {
     
         // Append a cell to the row for each value using "td" tag
         var cell = row.append("td");
