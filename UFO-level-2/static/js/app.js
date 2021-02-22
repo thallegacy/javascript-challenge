@@ -16,7 +16,7 @@ loadData.forEach((UFOSighting) => {
     var row = tbody.append("tr");
     
     // Loop for appending the values for each newly created row
-    Object.values(UFOSighting).forEach((value) => {
+    Object.entries(UFOSighting).forEach(([key, value]) => {
     
         // Append a cell to the row for each value using "td" tag
         var cell = row.append("td");
@@ -50,10 +50,10 @@ function tableFilter() {
     
     // Select the input element and get the raw HTML node
     var inputElementDate = d3.select("#datetime");
-    var inputElementCity = d3.select("#forcity");
-    var inputElementState = d3.select("#forstate");
-    var inputElementCountry = d3.select("#forcountry");
-    var inputElementShape = d3.select("#forshape");
+    var inputElementCity = d3.select("#city");
+    var inputElementState = d3.select("#state");
+    var inputElementCountry = d3.select("#country");
+    var inputElementShape = d3.select("#shape");
 
     
   
@@ -70,11 +70,21 @@ function tableFilter() {
     // Check to see if there is a value in the input field
     // If there is a value, create a key (.attr("id")) and value
     // Add it to the filterList array
-    if (inputValueDate !== "") { filterList[inputElementDate.attr("id")] = inputValueDate } 
-    if (inputValueCity !== "") { filterList[inputElementCity.attr("id")] = inputValueCity}
-    if (inputValueState !== "") { filterList[inputElementState.attr("id")] = inputValueState }
-    if (inputValueCountry !== "") { filterList[inputElementCountry.attr("id")] = inputValueCountry } 
-    if (inputValueShape !== "") { filterList[inputElementShape.attr("id")] = inputValueShape }
- 
+    if (inputValueDate !== "") { filterList[inputElementDate.attr("id")] = inputValueDate }; 
+    if (inputValueCity !== "") { filterList[inputElementCity.attr("id")] = inputValueCity};
+    if (inputValueState !== "") { filterList[inputElementState.attr("id")] = inputValueState };
+    if (inputValueCountry !== "") { filterList[inputElementCountry.attr("id")] = inputValueCountry } ;
+    if (inputValueShape !== "") { filterList[inputElementShape.attr("id")] = inputValueShape };
     
+    // Take key value pairs from filterList
+    // Loop the table on each pair
+    let filteredData = tableData;
+    Object.entries(filterList).forEach(([key, value]) => {
+        filteredData = filteredData.filter(row => row[key] === value);
+       
+    });
+    tbody.html("");
+    tableLoad(filteredData);
+
 };
+
